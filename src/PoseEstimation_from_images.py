@@ -14,8 +14,9 @@ def main():
     argv = sys.argv
     argc = len(argv)
     
-    if argc < 3:
-        print('%s <onnx_model> <wildcard for images>' % argv[0])
+    print('%s <onnx_model> <wildcard for images>' % argv[0])
+    
+    if argc < 3:   
         quit()
     
     onnx_model = onnx.load(argv[1])
