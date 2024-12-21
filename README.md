@@ -7,7 +7,6 @@
         <h2>なにものか？</h2>
         <p>
             画像や映像の中の人の骨格を抽出するプログラムです。<br>
-            <img src="images/1.png"><br>
             <img src="images/2.png"><br>
             <img src="images/3.png"><br>
             <img src="images/4.png"><br>
