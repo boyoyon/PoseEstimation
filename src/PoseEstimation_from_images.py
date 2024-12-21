@@ -24,9 +24,7 @@ def main():
    
     base = os.path.basename(argv[1])
     model_name = os.path.splitext(base)[0]
-
-    cap = cv2.VideoCapture(0)
-    
+   
     key = -1
    
     paths = glob.glob(argv[2])
