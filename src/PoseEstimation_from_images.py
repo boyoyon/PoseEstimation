@@ -73,7 +73,6 @@ def main():
         scale_x = W / 64
         scale_y = H / 64
        
-        scores = [] 
         for i in range(heatmaps.shape[0]):
             heatmap = heatmaps[i]
             heatmap_numpy = heatmap.detach().numpy()
@@ -82,8 +81,8 @@ def main():
         
             center = (int(idx_2d[1] * scale_x), int(idx_2d[0] * scale_y))
                
-            scores.append(heatmap_numpy[idx_2d[0]][idx_2d[1]])
-            if scores[-1] > TH:
+            score = heatmap_numpy[idx_2d[0]][idx_2d[1]]
+            if score > TH:
                 dst = cv2.circle(dst, center, 3, (0, 0, 255), -1)
      
         cv2.imwrite(dst_path, dst)
