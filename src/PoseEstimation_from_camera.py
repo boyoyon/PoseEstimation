@@ -13,12 +13,16 @@ def main():
 
     argv = sys.argv
     argc = len(argv)
-    
-    if argc < 2:
-        print('%s <onnx_model>' % argv[0])
-        quit()
-    
-    onnx_model = onnx.load(argv[1])
+   
+    print('%s executes pose estimation from camera' % argv[0])
+    print('[usage] python %s [<onnx_model>]' % argv[0])
+   
+    model_path = os.path.join(os.path.dirname(__file__), '../data/onnx/model_15.onnx')
+   
+    if argc > 1:
+        model_path = argv[1]
+
+    onnx_model = onnx.load(model_path)
     model = convert(onnx_model)
     model.eval()
     
@@ -73,6 +77,7 @@ def main():
         scale_x = frame.shape[1] / 64
         scale_y = frame.shape[0] / 64
        
+        scores = [] 
         for i in range(heatmaps.shape[0]):
             heatmap = heatmaps[i]
             heatmap_numpy = heatmap.detach().numpy()
@@ -81,11 +86,11 @@ def main():
         
             center = (int(idx_2d[1] * scale_x), int(idx_2d[0] * scale_y))
                
-            score = heatmap_numpy[idx_2d[0]][idx_2d[1]]
-
-            if score > TH:
+            scores.append(heatmap_numpy[idx_2d[0]][idx_2d[1]])
+            if scores[-1] > TH:
                 dst = cv2.circle(dst, center, 5, (0, 0, 255), -1)
         
+        #print(scores)
         cv2.imshow('result', dst)
         
         key = cv2.waitKey(10)
