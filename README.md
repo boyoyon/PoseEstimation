@@ -20,6 +20,9 @@
             <br>
             <table border="1">
                 <tr><th>モデル</th><th>FPS (i7-7700@3.60GHz)</th></tr>
+                <tr><td> model_01.onnx </td><td> 約 3.5 </td></tr>
+                <tr><td> model_05.onnx </td><td> 約 4.2 </td></tr>
+                <tr><td> model_10.onnx </td><td> 約 5.5 </td></tr>
                 <tr><td> model_15.onnx </td><td> 約 9.0 </td></tr>
                 <tr><td> mediapipe pose </td><td> 約 7.0 </td></tr>
             </table>
@@ -29,7 +32,7 @@
             切り出した画像をモデルに渡す必要があります。<br>
         </p>
         <h2>環境構築方法</h2>
-        <h3>model_15.onnx</h3>
+        <h3>model_**.onnx</h3>
         <p>
             pip install onnx2torch opencv-python<br>
         </p>
