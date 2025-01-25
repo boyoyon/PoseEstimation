@@ -49,4 +49,10 @@
             python mediapipe_PoseEstimation_from_images.py (人が写った画像へのワイルドカード)<br>
             例) python PoseEstimation_from_images.py *.png<br>
         </p>
+        <h3>model_01, model_05, model_10を使う場合の前準備</h3>
+        <p>
+            model_01の場合<br>
+            python src\merge.py data\onnx\model_01.onnx<br>
+        </p>
     </body>
+</html>
