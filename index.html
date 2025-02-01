@@ -65,6 +65,25 @@
             model_01の場合<br>
             python src\merge.py data\onnx\model_01.onnx<br>
         </p>
+        <h3>枝刈りしてない HRNET を試す場合</h3>
+        <p>
+            PINTOさんが提供している onnx 形式のモデルを指定することで、枝刈り前の(重いけど高精度な)HRNETを試すことができます。<br>
+            <a href="https://s3.ap-northeast-2.wasabisys.com/pinto-model-zoo/271_HRNet/resources.tar.gz">resources.tar.gz</a>をダウンロードする。<br>
+            resources.tar.gzを解凍する。<br>
+            resources.tarを解凍する。<br>
+            以下のonnx形式のモデルが解凍されます。<br>
+            ・hrnet_coco_w32_256x192.onnx<br>
+            ・hrnet_coco_w32_Nx256x192.onnx<br>
+            ・hrnet_coco_w48_384x288.onnx<br>
+            ・hrnet_coco_w48_Nx384x288.onnx<br>
+            ・hrnet_mpii_w32_256x256.onnx<br>
+            ・hrnet_mpii_w32_Nx256x256.onnx<br>
+            <br>
+            onnx_model = onnx.load(model_path)<br>
+            を<br>
+            onnx_model = onnx.load('hrnet_coco_w32_256x192.onnx')<br>
+            などと書き換えることで、動作させることができます。<br>
+            ※ 学習データセット(coco, mpii)によりlandmark(keypoint)が異なります。<br> 
+        </p>
     </body>
 </html>
-
