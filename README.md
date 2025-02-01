@@ -71,10 +71,9 @@
             ・hrnet_mpii_w32_256x256.onnx<br>
             ・hrnet_mpii_w32_Nx256x256.onnx<br>
             <br>
-            onnx_model = onnx.load(model_path)<br>
-            を<br>
-            onnx_model = onnx.load('hrnet_coco_w32_256x192.onnx')<br>
-            などと書き換えることで、動作させることができます。<br>
+            引数でonnxファイルを指定します。<br>
+            python PoseEstimation_from_camera.py <strong>(onnxファイル)</strong><br>
+            python PoseEstimation_from_images.py (人が写った画像へのワイルドカード) <strong>(onnxファイル)</strong><br>
             ※ 学習データセット(coco, mpii)によりlandmark(keypoint)が異なります。<br> 
         </p>
     </body>
